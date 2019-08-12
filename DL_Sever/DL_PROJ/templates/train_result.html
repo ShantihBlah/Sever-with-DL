@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+{% load  staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Result of Train</title>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form action="" method="post"  enctype="multipart/form-data" class="smart-green">
+<h1>Show the Train Result</h1>
+    <table border="1" class="smart-green">
+
+        <thead>
+            <th>parameter name</th>
+            <th>parameter value</th>
+        </thead>
+        <tbody>
+            {% for line in data %}
+                <tr>
+                    <td>{{ line.name }}</td>
+                    <td>{{ line.value }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<br>
+<br>
+<br>
+
+ <span>Errors Plot :</span>
+<img src="{% static 'images/errors.png' %}" width="500" height="500">
+{#width="500" height="500" alt="图片无法显示"#}
+<br>
+<br>
+<span>Pearson_Correlation :</span>
+<img src="{% static 'images/Pearson_Correlation.png' %}" width="500" height="500">
+<br>
+<br>
+<span>Interdependency :</span>
+<img src="{% static 'images/Score_Duration.png' %}" width="500" height="500">
+<img src="{% static 'images/Score_Gross.png' %}" width="500" height="500">
+<img src="{% static 'images/Score_Budget.png' %}" width="500" height="500">
+<img src="{% static 'images/Gross_Duration.png' %}" width="500" height="500">
+</form>
+
+
+</body>
+
+
+</html>

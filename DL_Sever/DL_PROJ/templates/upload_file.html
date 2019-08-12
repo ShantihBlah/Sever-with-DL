@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>upload files</title>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" />
+</head>
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>upload files</title>#}
+{#</head>#}
+<body>
+
+<form action="" method="post"  enctype="multipart/form-data" class="smart-green">
+    <h1>Upload Dataset</h1>
+    {% csrf_token %}
+    <input type="file" name="upload_file" /><br /><br /><br />
+    <input type="submit" name="upload" value="submit"/>
+</form>
+<br />
+<br />
+{{ res }}
+</body>
+</html>

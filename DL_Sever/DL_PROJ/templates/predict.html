@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+{% load  staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>predict</title>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form action="/predict_result/" method="post" class="smart-green">
+<h1>Movie Title</h1>
+
+    <span>Predict Input :</span>
+{#        <input id="predict_question" type="text" name="predict_question" class="error" placeholder="请输入要预测的数据"/>#}
+        <textarea id="movie_name" name="movie_name"  placeholder="Please input movie title that you want to predict"></textarea>
+        <div class="error-msg"></div>
+
+    <label>
+        <span>Predict Type :</span> <br> <br> <br>
+{#        <input id="train_model" type="text" name="train_model" class="error" placeholder="请输入要使用的模型"/>#}
+         <select name="predict_type">
+            <option value="Predict_Gross">Predict Gross</option>
+            <option  value="Predict_Score">Predict Score</option>
+        </select>
+        <div class="error-msg"></div>
+    </label>
+
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" name="predict_movie" value="run predict"/>
+    </label>
+    {# Make sure to submit successfully #}
+    {% csrf_token %}
+</form>
+</body>
+</html>
